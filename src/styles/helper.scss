@@ -1,0 +1,24 @@
+$primary-color: #286efa;
+$default-color: #393939;
+$color-white: #f9f9f9;
+
+:root {
+	--primary-color: #{$primary-color};
+	--default-color: #{$default-color};
+	--color-white: #{$color-white};
+}
+
+h2 {
+	font-size: 3.25rem;
+	margin-bottom: 1.5rem;
+}
+
+h3 {
+	font-size: 3rem;
+	margin-bottom: 1.5rem;
+}
+
+h4 {
+	font-size: 2.75rem;
+	margin-bottom: 1.5rem;
+}
