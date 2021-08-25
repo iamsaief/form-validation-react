@@ -25,19 +25,14 @@ function App() {
 					</p>
 
 					<FormSignup />
-
-					<p>
-						By clicking the button, you are agree to creating a free account, and to <a href="!#">Terms of Service</a>{' '}
-						and a <a href="!#">Privacy Policy</a>
-					</p>
 				</div>
 			</main>
 			<aside className="secondary-content-area">
 				<div>
 					<h2>Dummy Heading</h2>
 					<p>
-						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ratione asperiores. Minus nostrum, ipsa
-						eligendi cupiditate magni id repudiandae explicabo!
+						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ratione asperiores. Minus
+						nostrum, ipsa eligendi cupiditate magni id repudiandae explicabo!
 					</p>
 				</div>
 			</aside>

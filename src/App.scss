@@ -19,6 +19,7 @@ body {
 	line-height: 1.5;
 	font-weight: 400;
 	color: var(--default-color);
+	background: var(--primary-bg-light);
 }
 
 code {
@@ -40,7 +41,6 @@ code {
 
 .primary-content-area {
 	position: relative;
-	background: var(--color-white);
 	> div {
 		max-width: 480px;
 		margin: 0 auto;
