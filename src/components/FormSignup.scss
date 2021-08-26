@@ -1,97 +1,158 @@
-.error-hint {
-	color: red;
+@import '../styles/helper.scss';
+
+// SVG icon angle down
+@function svgIconAngleDown($color: #333) {
+	$hexColor: '%23' + str-slice('#{$color}', 2, -1);
+
+	@return "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 10'%3E%3Cpath d='M.452 2.727a.78.78 0 01-.181-.274.85.85 0 01-.062-.337c-.001-.107.02-.213.062-.311a.751.751 0 01.18-.275l.792-.797a.935.935 0 01.275-.19.954.954 0 01.333-.085c.114 0 .228.018.337.053a.789.789 0 01.274.175L8 6.24 13.54.7a.695.695 0 01.274-.19 1.06 1.06 0 01.336-.053.964.964 0 01.608.274l.792.792c.078.078.14.171.18.274a.883.883 0 010 .646.822.822 0 01-.18.274L8.624 9.665a.732.732 0 01-.275.221.78.78 0 01-.333.069.701.701 0 01-.334-.078.891.891 0 01-.274-.212L.452 2.727z' fill='#{$hexColor}'/%3E%3C/svg%3E";
 }
-
-.input-field {
-	--ft: 1.8rem;
-	--h: 54px;
-	--pd: 14px;
-	margin-bottom: 23px;
-	height: var(--h);
-	input,
-	select {
-		background-color: transparent;
-		outline: none;
-		width: 100%;
-		font-size: 1.6rem;
-		font-weight: 400;
+.form-signup {
+	// Input filed styles
+	.input-field {
+		--ft: 1.7rem;
+		--h: 54px;
+		--pd: 14px;
 		height: var(--h);
-		padding: 0 var(--pd);
-		border: 1px solid #ededed;
-		border-radius: 5px;
-		color: #333;
-		transition: 0.2s ease;
-	}
-
-	select {
-		appearance: none;
-		background-repeat: no-repeat;
-		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 10'%3E%3Cpath d='M.452 2.727a.78.78 0 01-.181-.274.85.85 0 01-.062-.337c-.001-.107.02-.213.062-.311a.751.751 0 01.18-.275l.792-.797a.935.935 0 01.275-.19.954.954 0 01.333-.085c.114 0 .228.018.337.053a.789.789 0 01.274.175L8 6.24 13.54.7a.695.695 0 01.274-.19 1.06 1.06 0 01.336-.053.964.964 0 01.608.274l.792.792c.078.078.14.171.18.274a.883.883 0 010 .646.822.822 0 01-.18.274L8.624 9.665a.732.732 0 01-.275.221.78.78 0 01-.333.069.701.701 0 01-.334-.078.891.891 0 01-.274-.212L.452 2.727z' fill='%23161616'/%3E%3C/svg%3E");
-		background-size: 10px auto;
-		background-position: right 14px center;
-
-		color: hsl(0deg 0% 53%);
-		font-size: var(--ft);
-	}
-
-	&.floating-label {
-		position: relative;
-
-		&:first-child {
-			margin-top: 23px;
+		margin-bottom: 22px;
+		input,
+		select {
+			background-color: transparent;
+			outline: none;
+			width: 100%;
+			font-size: 1.6rem;
+			font-weight: 400;
+			height: var(--h);
+			padding: 0 var(--pd);
+			border: 1px solid #ededed;
+			border-radius: 5px;
+			color: #333;
+			transition: 0.2s ease;
 		}
 
-		input {
-			&::placeholder {
-				color: transparent;
-			}
+		select {
+			appearance: none;
+			background-repeat: no-repeat;
+			background-image: url(svgIconAngleDown());
+			background-size: 10px auto;
+			background-position: right 14px center;
 
-			&:focus,
-			&:not(:placeholder-shown) {
-				// border-bottom: 1px solid #ededed;
-				// box-shadow: 0 1px 0 0 #ededed;
-			}
-
-			&:focus + label,
-			&:not(:placeholder-shown) + label {
-				transform: translate(var(--pd), -12px) scale(0.65);
-			}
-		}
-
-		label {
-			color: initial;
-			position: absolute;
-			top: 0;
-			left: -3px;
-			font-size: var(--ft);
-			line-height: 1;
-			cursor: text;
-			transform-origin: 0% 100%;
-			transform: translate(var(--pd), var(--ft));
-			transition: 0.2s ease-out;
-			padding: 0 6px;
-			background: var(--primary-bg-light);
 			color: hsl(0deg 0% 53%);
+			font-size: var(--ft);
+		}
+
+		// Floating label styles
+		&.floating-label {
+			position: relative;
+
+			&:first-child {
+				margin-top: 23px;
+			}
+
+			input {
+				transition: 0.3s ease-in;
+				&::placeholder {
+					color: transparent;
+				}
+
+				// input focus styles
+				&:focus,
+				&:not(:placeholder-shown) {
+					// border-color: #ededed; box-shadow: 0 0 0 1px #ededed;
+				}
+
+				// input focus floating-label styles
+				&:focus + label,
+				&:not(:placeholder-shown) + label {
+					transform: translate(var(--pd), -12px) scale(0.65);
+				}
+			}
+
+			label {
+				color: initial;
+				position: absolute;
+				top: 0;
+				left: -3px;
+				font-size: var(--ft);
+				line-height: 1;
+				cursor: text;
+				transform-origin: 0% 100%;
+				transform: translate(var(--pd), var(--ft));
+				transition: 0.3s ease-in;
+				padding: 0 6px;
+				background: var(--primary-bg-light);
+				color: hsl(0deg 0% 53%);
+			}
+		}
+
+		&.password {
+			input {
+				padding-right: 25px;
+			}
+			.hint {
+				font-size: 1.1rem;
+				color: #777777;
+				letter-spacing: 0.02rem;
+				padding-top: 16px;
+			}
+		}
+
+		// Input error styles
+		&.has-error {
+			margin-bottom: 50px;
+			.error-hint {
+				font-size: 1.2rem;
+				letter-spacing: 0.005rem;
+				margin-top: 10px;
+				color: var(--color-danger);
+			}
+			input,
+			select {
+				border-color: var(--color-danger);
+			}
+			select {
+				color: var(--color-danger);
+				background-image: url(svgIconAngleDown($color-danger));
+			}
+			&.floating-label label {
+				color: var(--color-danger);
+			}
 		}
 	}
 
-	&.password .hint {
-		font-size: 1.1rem;
-		color: #777777;
-		letter-spacing: 0.02rem;
-		padding-top: 16px;
+	// Submit btn
+	.form-btn-submit {
+		display: block;
+		font-weight: 600;
+		width: 100%;
+		height: 52px;
+		color: #fff;
+		background: var(--primary-color);
+		border: 1px solid var(--primary-color);
+		border-radius: 5px;
+		cursor: pointer;
+
+		&:disabled {
+			cursor: not-allowed;
+			color: #aaa;
+			background: #ededed;
+			border-color: #ededed;
+		}
 	}
 
-	&.has-error {
-		margin-bottom: 50px;
-		.error-hint {
-			margin-top: 10px;
-		}
-		input {
-			border-color: red;
-		}
-		&.floating-label label {
-			color: red;
+	// Toogle Password view
+	.icon-toggle-pass {
+		position: absolute;
+		top: 50%;
+		right: 10px;
+		width: 15px;
+		height: 15px;
+		transform: translateY(-50%);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		svg path {
+			fill: rgba(51, 51, 51, 0.9);
 		}
 	}
 }

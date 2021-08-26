@@ -4,13 +4,12 @@ const useForm = (validateInfo) => {
 	const [inputValues, setInputValues] = useState({
 		username: '',
 		email: '',
-		userType: '',
+		selectedType: '',
 		password: '',
-		password2: '',
 	});
 
 	const [errors, setErrors] = useState({});
-	const [btnDisable, setBtnDisable] = useState(true);
+	const [submmitDisable, setSubmmitDisable] = useState(true);
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -22,20 +21,24 @@ const useForm = (validateInfo) => {
 
 		setErrors(validateInfo(inputValues));
 
+		// to toggle disable submit btn
 		if (Object.keys(errors).length) {
-			setBtnDisable(true);
+			setSubmmitDisable(true);
 		} else {
-			setBtnDisable(false);
+			setSubmmitDisable(false);
 		}
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-
 		setErrors(validateInfo(inputValues));
+
+		if (!Object.keys(errors).length) {
+			console.log('✅ Submitted successfully 🎉', inputValues);
+		}
 	};
 
-	return { handleChange, inputValues, handleSubmit, errors, btnDisable };
+	return { handleChange, inputValues, handleSubmit, errors, submmitDisable };
 };
 
 export default useForm;

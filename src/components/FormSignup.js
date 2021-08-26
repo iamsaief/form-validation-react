@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useForm from '../useForm';
 import validateInfo from '../validateInfo';
 import './FormSignup.scss';
+import { SvgIconEye, SvgIconEyeSlash } from './SvgIcons';
 
 const FormSignup = () => {
-	const { handleChange, inputValues, handleSubmit, errors, btnDisable } = useForm(validateInfo);
+	const { handleChange, inputValues, handleSubmit, errors, submmitDisable } = useForm(validateInfo);
 
-	const errorClass = Object.keys(errors).length ? 'has-error' : '';
+	const [togglePasswordView, setTogglePasswordView] = useState(true);
+	const handlePasswordView = () => {
+		setTogglePasswordView(!togglePasswordView);
+	};
 
 	return (
-		<div>
-			<form onSubmit={handleSubmit} className="form">
+		<>
+			<form onSubmit={handleSubmit} className="form-signup">
 				<div className={`input-field floating-label ${errors.username && 'has-error'}`}>
 					<input
 						id="username"
@@ -39,28 +43,37 @@ const FormSignup = () => {
 					{errors.email && <p className="error-hint">{errors.email}</p>}
 				</div>
 
-				<div className="input-field select">
-					<select defaultValue={'DEFAULT'}>
-						<option value="DEFAULT" disabled>
-							I would describe my type as
-						</option>
+				<div className={`input-field select ${errors.selectedType && 'has-error'}`}>
+					<select name="selectedType" value={inputValues.selectedType} onChange={handleChange}>
+						<option value="">I would describe my type as</option>
 						<option value="beginner">Beginner</option>
 						<option value="intermediate">Intermediate</option>
 						<option value="advanded">Advanded</option>
 					</select>
+					{errors.selectedType && <p className="error-hint">{errors.selectedType}</p>}
 				</div>
 
 				<div className={`input-field floating-label password ${errors.password && 'has-error'}`}>
 					<input
 						id="password"
 						name="password"
-						type="password"
+						type={`${togglePasswordView ? 'password' : 'text'}`}
 						placeholder="&nbsp;"
 						autoComplete="off"
 						value={inputValues.password}
 						onChange={handleChange}
 					/>
 					<label htmlFor="password">Password</label>
+
+					{togglePasswordView ? (
+						<span className="icon-toggle-pass" onClick={handlePasswordView}>
+							<SvgIconEye />
+						</span>
+					) : (
+						<span className="icon-toggle-pass" onClick={handlePasswordView}>
+							<SvgIconEyeSlash />
+						</span>
+					)}
 
 					{errors.password ? (
 						<p className="error-hint">{errors.password}</p>
@@ -69,17 +82,13 @@ const FormSignup = () => {
 					)}
 				</div>
 				<br />
-
-				<button className="form-input-btn" type="submit" disabled={btnDisable}>
-					Sign up
+				<br />
+				<button className="form-btn-submit" type="submit" disabled={submmitDisable}>
+					Next
 				</button>
 			</form>{' '}
 			<br />
-			<p>
-				By clicking the button, you are agree to creating a free account, and to{' '}
-				<a href="!#">Terms of Service</a> and a <a href="!#">Privacy Policy</a>
-			</p>
-		</div>
+		</>
 	);
 };
 

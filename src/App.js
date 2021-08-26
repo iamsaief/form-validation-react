@@ -3,28 +3,21 @@ import FormSignup from './components/FormSignup';
 
 import './styles/helper.scss';
 import './App.scss';
+import FormStep from './components/FormStep';
+import FormHeader from './components/FormHeader';
+import FormFooter from './components/FormFooter';
 
 function App() {
 	return (
 		<div className="main-wrapper">
 			<main className="primary-content-area">
 				<div>
-					<div className="form-step">
-						<p>
-							Step 1 of 3
-							<span className="step-dots">
-								<span className="step active"></span>
-								<span className="step"></span>
-								<span className="step"></span>
-							</span>
-						</p>
-					</div>
-					<h3>Let's set up your account</h3>
-					<p>
-						Already have an account? <a href="!#">Sign in</a>
-					</p>
-
+					<FormStep />
+					<FormHeader />
+					<br />
 					<FormSignup />
+					<br />
+					<FormFooter />
 				</div>
 			</main>
 			<aside className="secondary-content-area">

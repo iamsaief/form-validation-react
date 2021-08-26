@@ -1,11 +1,13 @@
 $primary-color: #286efa;
-$default-color: #393939;
 $primary-bg-light: #f9f9f9;
+$default-color: #393939;
+$color-danger: #f53c3c;
 
 :root {
 	--primary-color: #{$primary-color};
-	--default-color: #{$default-color};
 	--primary-bg-light: #{$primary-bg-light};
+	--default-color: #{$default-color};
+	--color-danger: #{$color-danger};
 }
 
 h2 {
