@@ -41,10 +41,7 @@ code {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-
-		@media (max-width: 1200px) {
-			padding: 40px;
-		}
+		padding: 40px;
 	}
 }
 
@@ -100,8 +97,8 @@ code {
 
 	// FormFooter
 	.form-footer {
-		font-size: 1.8rem;
-		line-height: 1.8;
+		font-size: 1.4rem;
+		line-height: 1.9;
 		font-weight: 400;
 	}
 
@@ -115,6 +112,8 @@ code {
 // Secondary area styles
 .secondary-content-area {
 	background: var(--primary-color);
+	font-size: 1.8rem;
+	line-height: 1.7;
 	> div {
 		max-width: 350px;
 		margin: 0 auto;
