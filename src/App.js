@@ -1,8 +1,7 @@
 import React from 'react';
 import FormSignup from './components/FormSignup';
 
-import './styles/helper.scss';
-import './App.scss';
+import './scss/index.scss';
 import FormStep from './components/FormStep';
 import FormHeader from './components/FormHeader';
 import FormFooter from './components/FormFooter';

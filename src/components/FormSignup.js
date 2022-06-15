@@ -5,7 +5,7 @@ import './FormSignup.scss';
 import { SvgIconEye, SvgIconEyeSlash } from './SvgIcons';
 
 const FormSignup = () => {
-	const { handleChange, inputValues, handleSubmit, errors, submmitDisable } = useForm(validateInfo);
+	const { handleChange, inputValues, handleSubmit, errors, submitDisable } = useForm(validateInfo);
 
 	const [togglePasswordView, setTogglePasswordView] = useState(true);
 	const handlePasswordView = () => {
@@ -83,7 +83,7 @@ const FormSignup = () => {
 				</div>
 				<br />
 				<br />
-				<button className="form-btn-submit" type="submit" disabled={submmitDisable}>
+				<button className="form-btn-submit" type="submit" disabled={submitDisable}>
 					Next
 				</button>
 			</form>{' '}

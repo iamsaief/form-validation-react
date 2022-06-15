@@ -9,7 +9,7 @@ const useForm = (validateInfo) => {
 	});
 
 	const [errors, setErrors] = useState({});
-	const [submmitDisable, setSubmmitDisable] = useState(true);
+	const [submitDisable, setSubmitDisable] = useState(true);
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -23,9 +23,9 @@ const useForm = (validateInfo) => {
 
 		// to toggle disable submit btn
 		if (Object.keys(errors).length) {
-			setSubmmitDisable(true);
+			setSubmitDisable(true);
 		} else {
-			setSubmmitDisable(false);
+			setSubmitDisable(false);
 		}
 	};
 
@@ -38,7 +38,7 @@ const useForm = (validateInfo) => {
 		}
 	};
 
-	return { handleChange, inputValues, handleSubmit, errors, submmitDisable };
+	return { handleChange, inputValues, handleSubmit, errors, submitDisable };
 };
 
 export default useForm;
